@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+	<head>
+		<script src="http://unpkg.com/vue@3"></script>
+	</head>
+	<div class="videos" id="videos">
+		<div class="videosTitle">
+			<div class="videosTag">
+				<img title="heading_videos01" src="../assets/picture/heading_videos01.svg" class="heading_videos01">
+				<!-- <div class="videoTagBackgroud">
+					<div class="videoTagtxt"> 影片 </div>
+					<div class="videoTagCircle"></div>
+				</div> -->
+			</div>
+			<div class="videosTitletxt"> VIDEOS </div>
+			<div class="videosChange">
+				<div class="previousVideoBackgroud">
+					<img title="previous_video" src="../assets/picture/previous_video.png" class="previous_video">
+				</div>
+				<div class="nextVideoBackgroud" @click="nextVideo">
+					<img title="next_video" src="../assets/picture/next_video.png" class="next_video">
+				</div>
+			</div>
+		</div>
+		<div class="videosCarousel">
+			<img title="img_videos03" src="../assets/picture/img_videos03.jpg" class="img_videos03" id="img_videos">
+			<img title="img_videos02" src="../assets/picture/img_videos02.jpg" class="img_videos02" id="img_videos">
+			<img title="img_videos01" src="../assets/picture/img_videos01.jpg" class="img_videos01" id="img_videos">
+		</div>
+	</div>
+</html>
+
+<style lang="scss" src="../assets/scss/carousel.scss" scoped>
+</style>
+
+<script src="../assets/js/carousel-video.js"></script>
+
+<!-- <script type="text/javascript">
+	function videoCarouselNext() {
+		var videoCarouselShow = document.querySelectorAll("div.videosCarousel > img");
+		var element = document.querySelector('.img_videos03');
+		var style = window.getComputedStyle(element);
+		var matrix = new WebKitCSSMatrix(style.transform);
+		videoCarouselShow.forEach(
+			function(obj){
+				if ( matrix.m41 == 0 ) {
+					obj.style.animation = "nextVideo 1s ease-in forwards running";
+				} else if ( matrix.m41 < -1000 ) {
+					obj.style.animation = "nextVideo2 1s ease-in forwards running";
+				}
+			}
+		)
+	}
+</script> -->

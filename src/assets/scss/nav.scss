@@ -1,0 +1,395 @@
+nav {
+	margin: 0;
+	padding: 0;
+	color: #9D9D9D;
+	font-size: 13px;
+	font-weight: bolder;
+}
+
+.header_main {
+	display: flex;
+	justify-content: space-between;
+	height: 46px;
+	border-top: 1px solid rgb(217, 217, 217);
+}
+
+.headerHome {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 102.5px;
+	height: 100%;
+	background-color: #E60012;
+	cursor: pointer;
+}
+
+.headerNintendo {
+	width: 70%;
+}
+
+.headerRight {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.header_search {
+	display: flex;
+	flex-wrap: wrap;
+	cursor: pointer;
+}
+
+.header_search:hover {
+	color: #E60012;
+}
+
+.header_search:hover .headerRightBoxImg svg {
+	fill: #E60012;
+}
+
+.header_search:hover .header_search_content {
+	max-height: 500px;
+	border-top: 1.5px solid rgb(217, 217, 217);
+}
+
+.header_search:hover .content_block {
+	display: block;
+}
+
+.header_search_content {
+	width: 100%;
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height 0.7s ease-in-out;
+	position: absolute;
+	top: 46px;
+	right: 0px;
+	z-index: 2;
+	background-color: white;
+	cursor: auto;
+}
+
+.search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 25px 230px;
+	border: 1px solid rgb(217, 217, 217);
+	background-color: white;
+}
+
+.search_pict {
+	width: 13px;
+	height: 13px;
+	margin: 10px;
+}
+
+.search_input {
+	width: 580px;
+	height: 62px;
+	border: none;
+}
+
+.search_clear {
+	width: 16px;
+	height: 16px;
+	padding: 0px 10px;
+	border-right: 1.5px gray dotted;
+	cursor: pointer;
+}
+
+.search button {
+	width: 68px;
+	height: 42px;
+	margin: 0px 10px;
+	border: none;
+	cursor: pointer;
+}
+
+.keywords {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 20px 230px;
+	background-color: white;
+}
+
+.keywords_item {
+	display: flex;
+	align-items: center;
+	height: 24px;
+	background-color: #F2F2F2;
+	border-radius: 3px;
+	margin: 7px 5px 0px 0px;
+	cursor: pointer;
+}
+
+.keywords_item:hover svg {
+	fill: #E60012;
+}
+
+.keywords_item:hover .keywords_txt {
+	color: #E60012;
+}
+
+.keywords_item svg {
+	width: 4px;
+	height: 6px;
+	fill: #b4b4b4;
+	margin: 0px 5px 0px 10px;
+}
+
+.keywords_txt {
+	color: #8c8c8c;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px 5px 0px 0px;
+}
+
+.content_block {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.5;
+	position: absolute;
+	top: 46px;
+	left: 0px;
+	z-index: 1;
+	transition: z-index 0s 0.5s;
+}
+
+.content_block:hover ~ .header_search_content {
+	max-height: 0px;
+}
+
+.content_block:hover {
+	z-index: -1;
+}
+
+.header_shoppingcart {
+	display: flex;
+	cursor: pointer;
+}
+
+.header_shoppingcart:hover {
+	color: #E60012;
+}
+
+.header_shoppingcart:hover .headerRightBoxImg svg {
+	fill: #E60012;
+}
+
+.header_login {
+	display: flex;
+	flex-wrap: wrap;
+	cursor: pointer;
+}
+
+.header_login .headerRightBoxImg {
+	width: 10px;
+}
+
+.header_login:hover {
+	color: #ABABAB;
+}
+
+.header_login:hover .headerRightBoxImg svg {
+	fill: #ABABAB;
+}
+
+.header_login:hover .header_login_content {
+	max-height: 500px;
+	border-top: 1px solid #D20010;
+}
+
+.header_login:hover .content_block {
+	display: block;
+}
+
+.header_login_content {
+	width: 100%;
+	max-height: 0px;
+	background-color: #E60012;
+	position: absolute;
+	top: 46px;
+	right: 0px;
+	overflow: hidden;
+	transition: max-height 0.7s ease-in-out;
+	z-index: 2;
+	cursor: auto;
+}
+
+.my_nintendo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px 80px 10px 70px;
+}
+
+.my_nintendo svg {
+	width: 250px;
+	height: 50px;
+	fill: white;
+}
+
+.my_nintendo_text {
+	color: white;
+	font-size: 15px;
+	font-weight: bolder;
+}
+
+.login_detail {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 80px 20px 70px;
+}
+
+.login_detail_service {
+	width: 891px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.login_detail_service_item {
+	width: calc(100% / 3 - 3px);
+	background-color: white;
+	cursor: pointer;
+}
+
+.login_detail_service_item:hover .login_detail_service_item_title {
+	opacity: 0.7;
+}
+
+.login_detail_service_item:hover .login_detail_service_item_txt {
+	opacity: 0.7;
+}
+
+.login_detail_service_item_title {
+	margin: 0px 20px;
+	padding: 15px 0px;
+	display: flex;
+	align-items: center;
+	color: #E60012;
+	border-bottom: 1px solid rgb(217, 217, 217);
+	transition: opacity 0.2s
+}
+
+.login_detail_service_item_title svg {
+	fill: #E60012;
+}
+
+.login_detail_service_item_title_img {
+	width: 50px;
+	height: 41px;
+}
+
+.login_detail_service_item_title_txt {
+	width: 200px;
+	margin: 0px 0px 0px 10px;
+	font-size: 15px;
+	font-weight: bolder;
+	line-height: 20px;
+}
+
+.login_detail_service_item_title_txt span {
+	font-size: 12px;
+	line-height: 10px;
+}
+
+.login_detail_service_item_title_next {
+	width: 13px;
+	height: 13px;
+}
+
+.login_detail_service_item_txt {
+	font-size: 12px;
+	color: #3c3c3c;
+	padding: 10px 20px;
+	transition: opacity 0.2s
+}
+
+.login_detail_buttons {
+	padding: 0px 0px 0px 10px;
+	border-left: 3px dotted rgb(217, 217, 217);
+}
+
+.login_detail_buttons_login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 100px;
+	background-color: rgb(182, 0, 19);
+	cursor: pointer;
+}
+
+.login_detail_buttons_login svg {
+	width: 12px;
+	height: 12px;
+	fill: white;
+}
+
+.login_detail_buttons_login_txt {
+	margin: 0px 0px 0px 10px;
+	color: white;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.login_detail_buttons_register {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 8px 0px 0px 0px;
+	cursor: pointer;
+}
+
+.login_detail_buttons_register:hover .login_detail_buttons_register_txt {
+	opacity: 0.8;
+}
+
+.login_detail_buttons_register svg {
+	width: 10px;
+	height: 10px;
+	fill: white;
+}
+
+.login_detail_buttons_register_txt {
+	margin: 0px 0px 0px 8px;
+	color: white;
+	font-size: 14px;
+	font-weight: bolder;
+	transition: opacity 0.2s;
+}
+
+.content_block:hover ~ .header_login_content {
+	max-height: 0px;
+}
+
+.headerRightBoxImg {
+	display: flex;
+	align-items: center;
+	width: 15px;
+	height: 100%;
+}
+
+.headerRightBoxImg svg {
+	fill: #8c8c8c;
+}
+
+.headerRightBoxIcon {
+	width: 15px;
+	height: 15px;
+}
+
+.headerRightBoxtxt {
+	display: flex;
+	align-items: center;
+	margin: 0px 20px 0px 10px;
+	font-weight: bolder;
+}
+
+.svgs {
+	display: none;
+}
