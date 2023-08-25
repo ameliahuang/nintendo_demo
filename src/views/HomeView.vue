@@ -55,64 +55,87 @@
 		</div>
 	</div>
 	<main>
-		<div class="carousel">
+		<div class="carousel" id="homeCarousel">
+			<!-- <input type="radio" id="control-1" name="control" checked>
+			<input type="radio" id="control-2" name="control">
+			<input type="radio" id="control-3" name="control">
+			<input type="radio" id="control-4" name="control">
+			<input type="radio" id="control-5" name="control"> -->
 			<div class="carousel_content">
-				<div class="carousel_img">
+				<div class="carousel_img" :class="[carousel_animation.first, carousel_delay_1]">
 					<img src="../assets/picture/switch_Summer_Sale_230807_l.webp">
 				</div>
-				<div class="carousel_img">
+				<div class="carousel_img" :class="[carousel_animation.second, carousel_delay_2]">
 					<img src="../assets/picture/switch_pikmin4_230723_C_l.webp">
 				</div>
-				<div class="carousel_img">
-					<img src="../assets/picture/switch_hard_pikmin_230721_l.webp">
+				<div class="carousel_img" :class="[carousel_animation.third, carousel_delay_3]">
+					<img src="../assets/picture/switch_pokemonSV_230821_l.webp">
 				</div>
-				<div class="carousel_img">
+				<div class="carousel_img" :class="[carousel_animation.forth, carousel_delay_4]">
 					<img src="../assets/picture/famicom40th_230715_l.webp">
 				</div>
-				<div class="carousel_img">
+				<div class="carousel_img" :class="[carousel_animation.fifth, carousel_delay_5]">
 					<img src="../assets/picture/switch_Splakoshien_230810_l.webp">
 				</div>
 			</div>
+			<div class="test"> {{carousel_animation_control}} </div>
+			<!-- <div class="carousel_control">
+				<label for="control-1" class="carousel_control_visible">
+					<div class="carousel_control_visible_inside"></div>
+				</label>
+				<label for="control-2" class="carousel_control_visible">
+					<div class="carousel_control_visible_inside" @mouseover="carousel_animation_control_2"></div>
+				</label>
+				<label for="control-3" class="carousel_control_visible">
+					<div class="carousel_control_visible_inside" @mouseover="carousel_animation_control_3"></div>
+				</label>
+				<label for="control-4" class="carousel_control_visible">
+					<div class="carousel_control_visible_inside" @mouseover="carousel_animation_control_4"></div>
+				</label>
+				<label for="control-5" class="carousel_control_visible">
+					<div class="carousel_control_visible_inside" @mouseover="carousel_animation_control_5"></div>
+				</label>
+			</div> -->
 			<div class="carousel_bar">
-				<div class="carousel_bar_item">
+				<div class="carousel_bar_item" @mouseover="carousel_animation_choose_1" @mouseleave="carousel_animation_control_1">
 					<div class="carousel_bar_item_line_backgroud">
-						<div class="carousel_bar_item_line"></div>
+						<div class="carousel_bar_item_line" :class="[carousel_animation_bar.first, carousel_delay_1]"></div>
 					</div>
 					<div class="carousel_bar_item_content">
 						<img src="../assets/picture/switch_Summer_Sale_230807_thumb.webp">
 						<div class="carousel_bar_item_content_txt"> Nintendo Switch サマーセール </div>
 					</div>
 				</div>
-				<div class="carousel_bar_item">
+				<div class="carousel_bar_item" @mouseover="carousel_animation_choose_2" @mouseleave="carousel_animation_control_2">
 					<div class="carousel_bar_item_line_backgroud">
-						<div class="carousel_bar_item_line"></div>
+						<div class="carousel_bar_item_line" :class="[carousel_animation_bar.second, carousel_delay_2]"></div>
 					</div>
 					<div class="carousel_bar_item_content">
 						<img src="../assets/picture/switch_pikmin4_thumb.webp">
 						<div class="carousel_bar_item_content_txt"> Pikmin 4 （ピクミン４） </div>
 					</div>
 				</div>
-				<div class="carousel_bar_item">
+				<div class="carousel_bar_item" @mouseover="carousel_animation_choose_3" @mouseleave="carousel_animation_control_3">
 					<div class="carousel_bar_item_line_backgroud">
-						<div class="carousel_bar_item_line"></div>
+						<div class="carousel_bar_item_line" :class="[carousel_animation_bar.third, carousel_delay_3]"></div>
 					</div>
 					<div class="carousel_bar_item_content">
-						<img src="../assets/picture/switch_hard170120_thumb.webp">
-						<div class="carousel_bar_item_content_txt"> Nintendo Switch </div>
+						<img src="../assets/picture/switch_pokemon_thumb.gif">
+						<div class="carousel_bar_item_content_txt"> ポケットモンスター スカーレット・バイオレット ゼロの秘宝 </div>
 					</div>
 				</div>
-				<div class="carousel_bar_item">
+				<div class="carousel_bar_item" @mouseover="carousel_animation_choose_4" @mouseleave="carousel_animation_control_4">
 					<div class="carousel_bar_item_line_backgroud">
-						<div class="carousel_bar_item_line"></div>
+						<div class="carousel_bar_item_line" :class="[carousel_animation_bar.forth, carousel_delay_4]"></div>
 					</div>
 					<div class="carousel_bar_item_content">
 						<img src="../assets/picture/famicom40th_230715_thumb.webp">
 						<div class="carousel_bar_item_content_txt"> ファミコン40周年キャンペーンサイト </div>
 					</div>
 				</div>
-				<div class="carousel_bar_item">
+				<div class="carousel_bar_item" @mouseover="carousel_animation_choose_5" @mouseleave="carousel_animation_control_5">
 					<div class="carousel_bar_item_line_backgroud">
-						<div class="carousel_bar_item_line"></div>
+						<div class="carousel_bar_item_line" :class="[carousel_animation_bar.fifth, carousel_delay_5]"></div>
 					</div>
 					<div class="carousel_bar_item_content">
 						<img src="../assets/picture/switch_SplaKoshien_230302_thumb.webp">
@@ -218,6 +241,253 @@
 		components: {
 			// HelloWorld,
 			navTop
+		},
+		el: '#homeCarousel',
+		data() {
+			return {
+				carousel_animation: {
+					first: 'carousel_animation_init',
+					second: 'carousel_animation_init',
+					third: 'carousel_animation_init',
+					forth: 'carousel_animation_init',
+					fifth: 'carousel_animation_init',
+				},
+				carousel_animation_bar: {
+					first: 'carousel_animation_init_bar',
+					second: 'carousel_animation_init_bar',
+					third: 'carousel_animation_init_bar',
+					forth: 'carousel_animation_init_bar',
+					fifth: 'carousel_animation_init_bar',
+				},
+				carousel_delay_1: 'carousel_delay_first',
+				carousel_delay_2: 'carousel_delay_second',
+				carousel_delay_3: 'carousel_delay_third',
+				carousel_delay_4: 'carousel_delay_forth',
+				carousel_delay_5: 'carousel_delay_fifth',
+				carousel_animation_control: 1,
+			}
+		},
+		methods: {
+			carousel_animation_control_1() {
+				this.carousel_animation_control = 1;
+				this.carousel_animation = {
+					first: 'carousel_animation_init',
+					second: 'carousel_animation_init',
+					third: 'carousel_animation_init',
+					forth: 'carousel_animation_init',
+					fifth: 'carousel_animation_init',
+				};
+				this.carousel_animation_bar = {
+					first: 'carousel_animation_init_bar',
+					second: 'carousel_animation_init_bar',
+					third: 'carousel_animation_init_bar',
+					forth: 'carousel_animation_init_bar',
+					fifth: 'carousel_animation_init_bar',
+				};
+				this.carousel_delay_1 = 'carousel_delay_first';
+				this.carousel_delay_2 = 'carousel_delay_second';
+				this.carousel_delay_3 = 'carousel_delay_third';
+				this.carousel_delay_4 = 'carousel_delay_forth';
+				this.carousel_delay_5 = 'carousel_delay_fifth';
+			},
+			carousel_animation_control_2() {
+				this.carousel_animation_control = 2;
+				this.carousel_animation = {
+					first: 'carousel_animation_init',
+					second: 'carousel_animation_init',
+					third: 'carousel_animation_init',
+					forth: 'carousel_animation_init',
+					fifth: 'carousel_animation_init',
+				};
+				this.carousel_animation_bar = {
+					first: 'carousel_animation_init_bar',
+					second: 'carousel_animation_init_bar',
+					third: 'carousel_animation_init_bar',
+					forth: 'carousel_animation_init_bar',
+					fifth: 'carousel_animation_init_bar',
+				};
+				this.carousel_delay_2 = 'carousel_delay_first';
+				this.carousel_delay_3 = 'carousel_delay_second';
+				this.carousel_delay_4 = 'carousel_delay_third';
+				this.carousel_delay_5 = 'carousel_delay_forth';
+				this.carousel_delay_1 = 'carousel_delay_fifth';
+			},
+			carousel_animation_control_3() {
+				this.carousel_animation_control = 3;
+				this.carousel_animation = {
+					first: 'carousel_animation_init',
+					second: 'carousel_animation_init',
+					third: 'carousel_animation_init',
+					forth: 'carousel_animation_init',
+					fifth: 'carousel_animation_init',
+				};
+				this.carousel_animation_bar = {
+					first: 'carousel_animation_init_bar',
+					second: 'carousel_animation_init_bar',
+					third: 'carousel_animation_init_bar',
+					forth: 'carousel_animation_init_bar',
+					fifth: 'carousel_animation_init_bar',
+				};
+				this.carousel_delay_3 = 'carousel_delay_first';
+				this.carousel_delay_4 = 'carousel_delay_second';
+				this.carousel_delay_5 = 'carousel_delay_third';
+				this.carousel_delay_1 = 'carousel_delay_forth';
+				this.carousel_delay_2 = 'carousel_delay_fifth';
+			},
+			carousel_animation_control_4() {
+				this.carousel_animation_control = 4;
+				this.carousel_animation = {
+					first: 'carousel_animation_init',
+					second: 'carousel_animation_init',
+					third: 'carousel_animation_init',
+					forth: 'carousel_animation_init',
+					fifth: 'carousel_animation_init',
+				};
+				this.carousel_animation_bar = {
+					first: 'carousel_animation_init_bar',
+					second: 'carousel_animation_init_bar',
+					third: 'carousel_animation_init_bar',
+					forth: 'carousel_animation_init_bar',
+					fifth: 'carousel_animation_init_bar',
+				};
+				this.carousel_delay_4 = 'carousel_delay_first';
+				this.carousel_delay_5 = 'carousel_delay_second';
+				this.carousel_delay_1 = 'carousel_delay_third';
+				this.carousel_delay_2 = 'carousel_delay_forth';
+				this.carousel_delay_3 = 'carousel_delay_fifth';
+			},
+			carousel_animation_control_5() {
+				this.carousel_animation_control = 5;
+				this.carousel_animation = {
+					first: 'carousel_animation_init',
+					second: 'carousel_animation_init',
+					third: 'carousel_animation_init',
+					forth: 'carousel_animation_init',
+					fifth: 'carousel_animation_init',
+				};
+				this.carousel_animation_bar = {
+					first: 'carousel_animation_init_bar',
+					second: 'carousel_animation_init_bar',
+					third: 'carousel_animation_init_bar',
+					forth: 'carousel_animation_init_bar',
+					fifth: 'carousel_animation_init_bar',
+				};
+				this.carousel_delay_5 = 'carousel_delay_first';
+				this.carousel_delay_1 = 'carousel_delay_second';
+				this.carousel_delay_2 = 'carousel_delay_third';
+				this.carousel_delay_3 = 'carousel_delay_forth';
+				this.carousel_delay_4 = 'carousel_delay_fifth';
+			},
+			carousel_animation_choose_1() {
+				this.carousel_animation_control = 1 + 'choosed';
+				this.carousel_animation = {
+					first: 'carousel_animation_choose',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_animation_bar = {
+					first: '',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_delay_1 = '';
+				this.carousel_delay_2 = '';
+				this.carousel_delay_3 = '';
+				this.carousel_delay_4 = '';
+				this.carousel_delay_5 = '';
+			},
+			carousel_animation_choose_2() {
+				this.carousel_animation_control = 2 + 'choosed';
+				this.carousel_animation = {
+					first: '',
+					second: 'carousel_animation_choose',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_animation_bar = {
+					first: '',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_delay_1 = '';
+				this.carousel_delay_2 = '';
+				this.carousel_delay_3 = '';
+				this.carousel_delay_4 = '';
+				this.carousel_delay_5 = '';
+			},
+			carousel_animation_choose_3() {
+				this.carousel_animation_control = 3 + 'choosed';
+				this.carousel_animation = {
+					first: '',
+					second: '',
+					third: 'carousel_animation_choose',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_animation_bar = {
+					first: '',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_delay_1 = '';
+				this.carousel_delay_2 = '';
+				this.carousel_delay_3 = '';
+				this.carousel_delay_4 = '';
+				this.carousel_delay_5 = '';
+			},
+			carousel_animation_choose_4() {
+				this.carousel_animation_control = 4 + 'choosed';
+				this.carousel_animation = {
+					first: '',
+					second: '',
+					third: '',
+					forth: 'carousel_animation_choose',
+					fifth: '',
+				};
+				this.carousel_animation_bar = {
+					first: '',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_delay_1 = '';
+				this.carousel_delay_2 = '';
+				this.carousel_delay_3 = '';
+				this.carousel_delay_4 = '';
+				this.carousel_delay_5 = '';
+			},
+			carousel_animation_choose_5() {
+				this.carousel_animation_control = 5 + 'choosed';
+				this.carousel_animation = {
+					first: '',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: 'carousel_animation_choose',
+				};
+				this.carousel_animation_bar = {
+					first: '',
+					second: '',
+					third: '',
+					forth: '',
+					fifth: '',
+				};
+				this.carousel_delay_1 = '';
+				this.carousel_delay_2 = '';
+				this.carousel_delay_3 = '';
+				this.carousel_delay_4 = '';
+				this.carousel_delay_5 = '';
+			}
 		}
 	}
 </script>
