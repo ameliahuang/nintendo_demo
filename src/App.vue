@@ -1,14 +1,14 @@
 <template>
-	<router-link to="/">Home</router-link> |
 	<router-link to="/about">About</router-link>
 	<router-view/>
 </template>
 
 <style lang="scss">
 	body {
-		margin: 0;
+		margin: 0 auto;
 		padding: 0;
 		font-family: "nc3Jp", "YakuHanJPs", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif !important;
+		width: 1264px;
 	}
 
 	#app {
